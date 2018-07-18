@@ -68,6 +68,7 @@ class Round():
                 break
             # check for bust
             elif self.player_hand.is_bust():
+                self.outcome = 'Loss'
                 self.player_status = 'Bust'
                 print('Your hand is bust :(')
                 break
@@ -102,4 +103,8 @@ class Round():
         """Method to implement dealer moves in a round"""
         # opening message
         print('Dealer will start drawing!')
-        pass
+        # start dealer loop
+        while True:
+            # print both player hand and dealer hand
+            print(self.player_hand)
+            print(self.dealer_hand)
