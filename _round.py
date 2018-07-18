@@ -33,6 +33,13 @@ class Round():
         self.player_status = 'Normal'
         self.outcome = 'In Progress'
 
+    def set_outcome(self, new_outcome):
+        """Method to change outcome of round"""
+        if new_outcome not in ['Loss', 'Draw', 'Win', 'In Progress']:
+            raise Exception('Invalid value of player_outcome')
+        else:
+            self.outcome = new_outcome
+
     def player_sequence(self):
         """Method to implement all player moves in round"""
         def request_move():
@@ -62,7 +69,6 @@ class Round():
             # check for bust
             elif self.player_hand.is_bust():
                 self.player_status = 'Bust'
-                self.outcome = 'Loss'
                 print('Your hand is bust :(')
                 break
             # if neither, then request move from player
@@ -77,3 +83,23 @@ class Round():
                 # if player enters wrong input, do nothing
                 else:
                     pass
+
+    def check_dealer_natural(self):
+        """
+        Method to check if dealer has a natural blackjack.
+        Executed when the player gets a blackjack.
+        """
+        if blackjack_round.dealer_hand.is_natural_blackjack():
+            self.outcome = 'Draw'
+            print('And so does the dealer!')
+            print(blackjack_round.dealer_hand)
+        else:
+            self.outcome = 'Win'
+            print('And the dealer does not!')
+            print(blackjack_round.dealer_hand)
+
+    def dealer_sequence(self):
+        """Method to implement dealer moves in a round"""
+        # opening message
+        print('Dealer will start drawing!')
+        pass
