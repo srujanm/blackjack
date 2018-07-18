@@ -1,7 +1,6 @@
 """
 PlayerHand object
 """
-
 from ._hand import Hand
 
 class PlayerHand(Hand):

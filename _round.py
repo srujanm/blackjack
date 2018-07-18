@@ -15,6 +15,7 @@ class Round():
             deck (Deck)
             player_hand (PlayerHand)
             dealer_hand (DealerHand)
+            player_status (str): 'Normal', 'Bust', 'Blackjack'
             outcome (str): 'Loss', 'Draw', 'Win', 'In Progress'
         """
         self.player_name = player_name
@@ -28,5 +29,51 @@ class Round():
         # deal two cards each to both player and dealer
         self.player_hand.deal(self.deck)
         self.dealer_hand.deal(self.deck)
-        # initialize outcome
+        # initialize player status and outcome
+        self.player_status = 'Normal'
         self.outcome = 'In Progress'
+
+    def player_sequence(self):
+        """Method to implement all player moves in round"""
+        def request_move():
+            """
+            Sub-function of player_sequence() which accepts player input for a move
+            Returns:
+                (str)
+            """
+            print('Choose your move: Enter h to hit and s to stand')
+            move = input()
+            # check for validity of input
+            if move != 'h' and move != 's':
+                print('Invalid input! Try again')
+                return None
+            else:
+                return move    
+        # begin player loop
+        while True:
+            # print player hand and one card from dealer hand
+            print(self.player_hand)
+            self.dealer_hand.show_one()
+            # check for blackjack
+            if self.player_hand.is_blackjack():
+                self.player_status = 'Blackjack'
+                print('You have a blackjack! :D')
+                break
+            # check for bust
+            elif self.player_hand.is_bust():
+                self.player_status = 'Bust'
+                self.outcome = 'Loss'
+                print('Your hand is bust :(')
+                break
+            # if neither, then request move from player
+            else:
+                move = request_move()
+                # if player requests to hit, draw a card
+                if move is 'h':
+                    self.player_hand.hit(self.deck)
+                # if player requests to stand, break out of player loop
+                elif move is 's':
+                    break
+                # if player enters wrong input, do nothing
+                else:
+                    pass
