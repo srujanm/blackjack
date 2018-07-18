@@ -1,1 +1,2 @@
-from ._deck import Deck, CARDS
+from ._deck import Deck
+from ._hand import Hand
