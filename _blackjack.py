@@ -27,17 +27,14 @@ def blackjack(player_name='HUMAN'):
     # deal two cards each to both player and dealer
     player_hand.deal(blackjack_deck)
     dealer_hand.deal(blackjack_deck)
-    # display player hand and one card from dealer hand
-    print('Your cards:')
-    for card in player_hand.display():
-        print(card, end='\t')
-    print('\nDealer card:')
-    print(str(player_hand.display()[0]))
 
     # start the round
     # round outcome indicator to be returned by function
     round_outcome = None
     while True:
+        # print player hand and one card from dealer hand
+        print(player_hand)
+        dealer_hand.show_one()
         # check for blackjack
         if player_hand.is_blackjack():
             round_outcome = 1

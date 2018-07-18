@@ -6,9 +6,24 @@ from ._hand import Hand
 
 class DealerHand(Hand):
     """
-    DealerHand object is derived from Hand
-    Has methods to detect if hand is bust or blackjack
+    DealerHand object is sub-classed from Hand
     """
+    def __str__(self):
+        """
+        Returns string listing cards in hand
+        """
+        card_str = 'Dealer cards:\n'
+        for card in self.display():
+            card_str += card + '\t'
+        return card_str
+
+    def show_one(self):
+        """
+        Prints out only first card in hand
+        """
+        print('Dealer card:')
+        print(self.display()[0])
+
     def is_bust(self):
         """
         Checks if hand is bust
