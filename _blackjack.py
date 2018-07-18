@@ -46,17 +46,19 @@ def blackjack(player_name='HUMAN'):
             print('Your hand is bust :(')
             break
         # if neither, then request move from player
-        # if player requests to hit, draw a card
-        elif request_move() is 'h':
-            # draw a card from the deck
-            player_hand.hit(blackjack_deck)
-        # if player requests to stand, initiate dealer sequence
-        elif request_move() is 's':
-            print('Starting dealer moves')
-            pass
-        # if player enters a wrong input, do nothing
         else:
-            pass
+            move = request_move()
+            # if player requests to hit, draw a card
+            if move is 'h':
+                # draw a card from the deck
+                player_hand.hit(blackjack_deck)
+            # if player requests to stand, initiate dealer sequence
+            elif move is 's':
+                print('Starting dealer moves')
+                break
+            # if player enters wrong input, do nothing
+            else:
+                pass
     else:
         print('End of round!')
 
