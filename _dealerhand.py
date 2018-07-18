@@ -41,3 +41,12 @@ class DealerHand(Hand):
             (bool)
         """
         return self.score(ace_value=1) == 17 or self.score(ace_value=11) == 17
+
+    def is_natural_blackjack(self):
+        """
+        Checks if hand is natural blackjack
+
+        Returns:
+            (bool)
+        """
+        return self.score(ace_value=1) == 21 or self.score(ace_value=11) == 21
