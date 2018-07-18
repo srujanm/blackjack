@@ -90,7 +90,7 @@ class Round():
         Method to check if dealer has a natural blackjack.
         Executed when the player gets a blackjack.
         """
-        if blackjack_round.dealer_hand.is_natural_blackjack():
+        if blackjack_round.dealer_hand.is_blackjack():
             self.outcome = 'Draw'
             print('And so does the dealer!')
             print(blackjack_round.dealer_hand)
