@@ -83,21 +83,3 @@ class Hand():
                 return score_without_aces + ace_value
             else:
                 return score_without_aces + ace_value + (self.cards['A']-1)
-
-    def is_bust(self):
-        """
-        Checks if hand is bust
-
-        Returns:
-            (bool)
-        """
-        return min(self.score(ace_value=1), self.score(ace_value=11)) > 21
-
-    def is_blackjack(self):
-        """
-        Checks if hand is blackjack
-
-        Returns:
-            (bool)
-        """
-        return self.score(ace_value=1) == 21 or self.score(ace_value=11) == 21

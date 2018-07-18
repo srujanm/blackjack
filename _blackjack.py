@@ -3,7 +3,8 @@ Script with blackjack game implementations
 """
 
 from ._deck import Deck, CARD_NAMES, CARD_VALUES, CARD_DICT
-from ._hand import Hand
+from ._playerhand import PlayerHand
+from ._dealerhand import DealerHand
 
 def blackjack(player_name='HUMAN'):
     """
@@ -21,8 +22,8 @@ def blackjack(player_name='HUMAN'):
     # initialize deck
     blackjack_deck = Deck()
     # initialize player and dealer hands
-    player_hand = Hand(owner=player_name)
-    dealer_hand = Hand(owner='Dealer')
+    player_hand = PlayerHand(owner=player_name)
+    dealer_hand = DealerHand(owner='Dealer')
     # deal two cards each to both player and dealer
     player_hand.deal(blackjack_deck)
     dealer_hand.deal(blackjack_deck)
