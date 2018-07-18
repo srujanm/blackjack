@@ -24,10 +24,13 @@ def blackjack_round(player_name='Human'):
         pass
     # if player hand is blackjack, check dealer hand to determine outcome
     elif blackjack_round.player_status is 'Blackjack':
-        blackjack_round.check_dealer_natural()
+        blackjack_round.dealer_hand.check_dealer_natural()
     # if neither, then initiate dealer sequence to determine outcome
     else:
         blackjack_round.dealer_sequence()
+        # if dealer does not get a blackjack or bust, compare scores
+        if blackjack_round.outcome is 'In Progress':
+            pass
     # terminate round
     print('End of round!')
     return blackjack_round.outcome

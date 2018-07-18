@@ -1,7 +1,7 @@
 """
 One round of blackjack
 """
-
+import random
 from ._deck import Deck
 from ._playerhand import PlayerHand
 from ._dealerhand import DealerHand
@@ -108,3 +108,21 @@ class Round():
             # print both player hand and dealer hand
             print(self.player_hand)
             print(self.dealer_hand)
+            # check for blackjack
+            if self.dealer_hand.is_blackjack():
+                self.outcome = 'Loss'
+                print('Dealer has a blackjack!')
+                break
+            # check for bust
+            elif self.dealer_hand.is_bust():
+                self.outcome = 'Win'
+                print('Dealer hand is bust!')
+                break
+            # implement dumb dealer who will hit with fixed probability regardless of hand
+            hit_chance = 0.8
+            if random.randint(0,100)/100.0 < hit_chance:
+                print('Dealer decided to hit')
+                self.dealer_hand.hit(self.deck)
+            else:
+                print('Dealer decided to stand')
+                break
