@@ -24,6 +24,27 @@ class Game():
         print('How much money do you want to put on the table? ;)')
         self.money = request_int()
 
+    def request_bet(self):
+        """
+        Function which accepts bet amount for a given round
+        Returns:
+            (int)
+        """
+        print('How much do you want to bet on this round?')
+        while True:
+            try:
+                bet = request_int()
+                if bet > self.money:
+                    raise ValueError(f'Your cannot bet more than the money on table, i.e. {self.money}. Try again ;)')
+                elif bet == self.money:
+                    print('Brave!')
+                    break
+                else:
+                    break
+            except ValueError as problem:
+                print(problem)
+        return bet
+
     def adjust_winings(self, round_outcome):
         """
         Method to adjust winnings after a round
@@ -49,7 +70,7 @@ class Game():
             # if player says yes, play new round
             elif player_input == 'y':
                 # accept bet input
-                round_bet = request_bet()
+                bet = self.request_bet()
                 # initiate round
                 #round_outcome = blackjack_round()
                 # adjust winnings based on round outcome
@@ -89,12 +110,3 @@ def request_round():
         except ValueError as problem:
             print(problem)
     return answer 
-            
-def request_bet():
-    """
-    Function which checks validity of player input while requesting bet amount in a round
-    Returns:
-        (int)
-    """
-    ### TO ADD ###
-    pass
