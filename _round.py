@@ -126,7 +126,7 @@ class Round():
         if score_diff > 0:
             self.outcome = 'Win'
             print(f'You beat the dealer by {score_diff} points')
-        if score_diff == 0:
+        elif score_diff == 0:
             self.outcome = 'Draw'
             print('You and the dealer have the same score!')
         else:
