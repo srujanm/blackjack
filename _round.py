@@ -28,7 +28,7 @@ class Round():
         # deal two cards each to both player and dealer
         self.player_hand.deal(self.deck)
         self.dealer_hand.deal(self.deck)
-        # initialize player status and outcome
+        # initialize player status and round outcome
         self.player_status = 'Normal'
         self.outcome = 'In Progress'
 
