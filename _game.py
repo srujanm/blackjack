@@ -45,14 +45,22 @@ class Game():
                 print(problem)
         return bet
 
-    def adjust_winings(self, round_outcome):
+    def adjust_winnings(self, round_outcome, bet):
         """
         Method to adjust winnings after a round
         Inputs:
             round_outcome (str): 'Win', 'Loss' or 'Draw'
         """
-        ### TO ADD ###
-        pass
+        if round_outcome == 'Win':
+            self.money += 1.5*bet
+            print(f'Congratulations! You now have {self.money} moneys')
+        elif round_outcome == 'Loss':
+            self.money -= bet
+            print(f'Bad luck! You now have {self.money} moneys')
+        elif round_outcome == 'Draw':
+            print(f'The round is a draw! You still have {self.money} moneys')
+        else:
+            raise ValueError('Wrong value for round_outcome string')
 
     def start_game(self):
         """"Main method that implements game"""
@@ -74,9 +82,9 @@ class Game():
                 # initiate round
                 round_outcome = blackjack_round(self.player_name)
                 # adjust winnings based on round outcome
-                self.adjust_winings(round_outcome)
+                self.adjust_winnings(round_outcome, bet)
             # if player lost all money, exit game loop
-            # ADD this function
+            # ADD this
 
 def request_int():
     """
