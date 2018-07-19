@@ -33,13 +33,6 @@ class Round():
         self.player_status = 'Normal'
         self.outcome = 'In Progress'
 
-    def set_outcome(self, new_outcome):
-        """Method to change outcome of round"""
-        if new_outcome not in ['Loss', 'Draw', 'Win', 'In Progress']:
-            raise Exception('Invalid value of player_outcome')
-        else:
-            self.outcome = new_outcome
-
     def player_sequence(self):
         """Method to implement all player moves in round"""
         def request_move():

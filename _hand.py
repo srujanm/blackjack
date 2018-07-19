@@ -66,6 +66,7 @@ class Hand():
 
         Inputs:
             ace_value (int): value to use for an ace card in hand
+            ***this input will be deprecated***
 
         Returns:
             (int)
@@ -75,14 +76,24 @@ class Hand():
         if not self.is_soft():
             return score_without_aces
 
-        # if hand is soft, add ace_value in sum for one ace card in hand
-        else:    
-            if ace_value != 1 and ace_value != 11:
-                raise Exception('Value of ace can only be 1 or 11')
-            elif self.cards['A'] == 1:
-                return score_without_aces + ace_value
-            else:
-                return score_without_aces + ace_value + (self.cards['A']-1)
+        # if hand is soft
+        else:
+            # with one ace
+            if self.cards['A'] == 1:
+                score_upper = score_without_aces + 11
+                score_lower = score_without_aces + 1
+                if score_upper <= 21:
+                    return score_upper
+                else:
+                    return score_lower
+            # with multiple aces
+            else: 
+                score_upper = score_without_aces + 11 + (self.cards['A']-1)
+                score_lower = score_without_aces + 1 + (self.cards['A']-1)
+                if score_upper <= 21:
+                    return score_upper
+                else:
+                    return score_lower
 
     def is_bust(self):
         """
