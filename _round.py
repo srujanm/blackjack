@@ -1,7 +1,6 @@
 """
 One round of blackjack
 """
-import random
 from ._deck import Deck
 from ._playerhand import PlayerHand
 from ._dealerhand import DealerHand
