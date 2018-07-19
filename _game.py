@@ -14,7 +14,6 @@ class Game():
         # opening message
         print('Enter your name')
         self.player_name = input()
-        self.no_rounds = 0
         self.money = 0
 
     def game_rules(self):
