@@ -53,12 +53,12 @@ class Game():
         """
         if round_outcome == 'Win':
             self.money += 1.5*bet
-            print(f'Congratulations! You now have {self.money} moneys')
+            print(f'\nCongratulations! You now have {self.money} moneys')
         elif round_outcome == 'Loss':
             self.money -= bet
-            print(f'Bad luck! You now have {self.money} moneys')
+            print(f'\nBad luck! You now have {self.money} moneys')
         elif round_outcome == 'Draw':
-            print(f'The round is a draw! You still have {self.money} moneys')
+            print(f'\nThe round is a draw! You still have {self.money} moneys')
         else:
             raise ValueError('Wrong value for round_outcome string')
 
@@ -89,6 +89,10 @@ class Game():
             # else request new round
             else:
                 continue
+
+    def stop_game(self):
+        """Prints closing message of game"""
+        print(f'Thanks for playing, {self.player_name}. This was fun!')
 
 def request_int():
     """
