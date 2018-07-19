@@ -12,7 +12,7 @@ class Game():
             money (int): amount of money over all elapsed rounds. positive for net gain, negative for net loss
         """
         # opening message
-        print('Enter your name!')
+        print('Enter your name')
         self.player_name = input()
         self.no_rounds = 0
         self.money = 0
@@ -33,29 +33,12 @@ class Game():
         ### TO ADD ###
         pass
 
-    def request_round():
-        """
-        Function which checks validity of player input while requesting if they want a new round
-        Returns:
-            (str)
-        """
-        print('\nDo you want to start a round? y or n')
-        while True:
-            answer = input()
-            # check for validity of input
-            if answer != 'y' and answer != 'n':
-                print('Invalid input! Try again')
-                continue
-            else:
-                break
-        return answer 
-
     def start_game(self):
         """"Main method that implements game"""
         # opening message
         print('\nStarting new game!')
         # ask player for money to put on the table
-        self.set_money() ### CANT FIND REQUEST_INT for some reason
+        self.set_money()
         # initialize game loop
         while True:
             # see if the player wants a new round
@@ -88,6 +71,24 @@ def request_int():
         except ValueError:
             print('Invalid input! You must enter a number')
     return amount
+
+def request_round():
+    """
+    Function which checks validity of player input while requesting if they want a new round
+    Returns:
+        (str)
+    """
+    print('\nDo you want to start a round? y or n')
+    while True:
+        try:
+            answer = input()
+            if answer != 'y' and answer != 'n':
+                raise ValueError('Invalid input! You must enter y or n')
+            else:
+                break
+        except ValueError as problem:
+            print(problem)
+    return answer 
             
 def request_bet():
     """
