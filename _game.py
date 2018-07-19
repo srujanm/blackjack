@@ -92,7 +92,7 @@ class Game():
 
     def stop_game(self):
         """Prints closing message of game"""
-        print(f'Thanks for playing, {self.player_name}. This was fun!')
+        print(f'\nThanks for playing, {self.player_name}. This was fun!')
 
 def request_int():
     """
