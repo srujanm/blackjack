@@ -86,11 +86,11 @@ class Round():
         if self.dealer_hand.is_blackjack():
             self.outcome = 'Draw'
             print('And so does the dealer!')
-            print(blackjack_round.dealer_hand)
+            print(self.dealer_hand)
         else:
             self.outcome = 'Win'
             print('And the dealer does not!')
-            print(blackjack_round.dealer_hand)
+            print(self.dealer_hand)
 
     def dealer_sequence(self):
         """Method to implement dealer moves in a round"""
