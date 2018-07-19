@@ -1,1 +1,1 @@
-from ._blackjackround import blackjack_round
+from ._game import Game

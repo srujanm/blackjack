@@ -19,7 +19,7 @@ class Round():
         """
         self.player_name = player_name
         # opening message
-        print('Starting new round of game!\n')
+        print('New round!\n')
         # initialize deck
         self.deck = Deck()
         # initialize player and dealer hands
