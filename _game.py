@@ -75,9 +75,8 @@ class Game():
                 round_outcome = blackjack_round(self.player_name)
                 # adjust winnings based on round outcome
                 self.adjust_winings(round_outcome)
-            # if player entered wrong input, do nothing
-            else:
-                pass
+            # if player lost all money, exit game loop
+            # ADD this function
 
 def request_int():
     """
@@ -88,9 +87,12 @@ def request_int():
     while True:
         try:
             amount = float(input())
-            break
+            if amount <= 0:
+                raise ValueError
+            else:
+                break
         except ValueError:
-            print('Invalid input! You must enter a number')
+            print('Invalid input! You must enter a positive number')
     return amount
 
 def request_round():
