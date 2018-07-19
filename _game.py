@@ -37,7 +37,7 @@ class Game():
                 if bet > self.money:
                     raise ValueError(f'Your cannot bet more than the money on table, i.e. {self.money}. Try again ;)')
                 elif bet == self.money:
-                    print('Brave!')
+                    print(f'Brave {self.player_name}!')
                     break
                 else:
                     break
@@ -72,7 +72,7 @@ class Game():
                 # accept bet input
                 bet = self.request_bet()
                 # initiate round
-                #round_outcome = blackjack_round()
+                round_outcome = blackjack_round(self.player_name)
                 # adjust winnings based on round outcome
                 self.adjust_winings(round_outcome)
             # if player entered wrong input, do nothing
