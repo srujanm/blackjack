@@ -44,7 +44,7 @@ class Game():
         """
         Method that makes user place money in the game
         """
-        print('How much money do you want to put on the table? ;)')
+        print('\nHow much money do you want to put on the table? ;)')
         self.money = request_int()
 
     def request_bet(self):
