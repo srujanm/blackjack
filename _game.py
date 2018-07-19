@@ -18,6 +18,9 @@ class Game():
         self.money = 0
 
     def set_money(self):
+        """
+        Method that makes user place money in the game
+        """
         print('How much money do you want to put on the table? ;)')
         self.money = request_int()
 
