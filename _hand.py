@@ -60,14 +60,9 @@ class Hand():
         """
         return self.cards['A'] > 0
 
-    def score(self, ace_value=None):
+    def score(self):
         """
         Calculates score of hand
-
-        Inputs:
-            ace_value (int): value to use for an ace card in hand
-            ***this input will be deprecated***
-
         Returns:
             (int)
         """
@@ -76,22 +71,22 @@ class Hand():
         if not self.is_soft():
             return score_without_aces
 
-        # if hand is soft
+        # if hand is soft, choose between higher and lower bounds for score
         else:
             # with one ace
             if self.cards['A'] == 1:
-                score_upper = score_without_aces + 11
+                score_higher = score_without_aces + 11
                 score_lower = score_without_aces + 1
-                if score_upper <= 21:
-                    return score_upper
+                if score_higher <= 21:
+                    return score_higher
                 else:
                     return score_lower
             # with multiple aces
             else: 
-                score_upper = score_without_aces + 11 + (self.cards['A']-1)
+                score_higher = score_without_aces + 11 + (self.cards['A']-1)
                 score_lower = score_without_aces + 1 + (self.cards['A']-1)
-                if score_upper <= 21:
-                    return score_upper
+                if score_higher <= 21:
+                    return score_higher
                 else:
                     return score_lower
 
@@ -102,7 +97,7 @@ class Hand():
         Returns:
             (bool)
         """
-        return min(self.score(ace_value=1), self.score(ace_value=11)) > 21
+        return self.score > 21
 
     def is_blackjack(self):
         """
@@ -111,4 +106,4 @@ class Hand():
         Returns:
             (bool)
         """
-        return self.score(ace_value=1) == 21 or self.score(ace_value=11) == 21
+        return self.score == 21

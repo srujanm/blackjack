@@ -26,6 +26,6 @@ class DealerHand(Hand):
         If the soft score is less than or equal to 17 or hard score is less than 17, dealer should draw
         """
         if self.is_soft():
-            return self.score(ace_value=1) <= 17
+            return self.score() <= 17
         else:
             return self.score() < 17
