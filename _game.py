@@ -1,7 +1,7 @@
 """
 Blackjack game object
 """
-from ._blackjackround import blackjack_round
+from ._blackjack import blackjack
 
 class Game():
     def __init__(self):
@@ -80,7 +80,7 @@ class Game():
                 # accept bet input
                 bet = self.request_bet()
                 # initiate round
-                round_outcome = blackjack_round(self.player_name)
+                round_outcome = blackjack(self.player_name)
                 # adjust winnings based on round outcome
                 self.adjust_winnings(round_outcome, bet)
             # if player lost all money, exit game loop

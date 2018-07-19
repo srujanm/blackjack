@@ -4,7 +4,7 @@ Script with implementation of one blackjack round
 
 from ._round import Round
 
-def blackjack_round(player_name='Human'):
+def blackjack(player_name='Human'):
     """
     Main function
 
