@@ -118,11 +118,11 @@ class Round():
                 self.outcome = 'Win'
                 print('Dealer hand is bust!')
                 break
-            # implement dumb dealer who will hit with fixed probability regardless of hand
-            hit_chance = 0.8
-            if random.randint(0,100)/100.0 < hit_chance:
-                print('Dealer decided to hit')
+            # check if dealer should draw
+            elif self.dealer_hand.should_draw():
+                print('Dealer draws')
                 self.dealer_hand.hit(self.deck)
+            # else complete dealer hand
             else:
-                print('Dealer decided to stand')
+                print('Dealer hand complete')
                 break
