@@ -1,5 +1,5 @@
 # blackjack
-This is a text-based single player blackjack game that runs on the command line. It was created as a python learning assignment.
+This is a text-based single player [blackjack](https://en.wikipedia.org/wiki/Blackjack) game that runs on the command line. It was created as a python learning assignment.
 
 blackjack was developed and tested on python 3.6 installed on Windows 10. Python was installed via the corresponding Miniconda distribution but this package itself does not require anything outside in-built python packages.
 
