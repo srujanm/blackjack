@@ -18,7 +18,7 @@ class Game():
         self.money = 0
 
     def game_rules(self):
- 	"""Function that prints game rules"""
+ 		"""Function that prints game rules"""
  		print('\nStarting new game!')
  		print(f'\nWelcome to simple single player blackjack, {self.player_name}. Here are the rules:')
  		print('BETTING:')
