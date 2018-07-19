@@ -12,7 +12,7 @@ def blackjack_round(player_name='Human'):
         player_name (str): name of player
 
     Returns:
-        (int): -1 for loss, 0 for draw, 1 for win
+        outcome (str): 'Win', 'Loss' or 'Draw'
     """
     # start a new round
     round = Round(player_name)
