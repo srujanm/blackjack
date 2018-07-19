@@ -84,7 +84,11 @@ class Game():
                 # adjust winnings based on round outcome
                 self.adjust_winnings(round_outcome, bet)
             # if player lost all money, exit game loop
-            # ADD this
+            if self.money == 0:
+                break
+            # else request new round
+            else:
+                continue
 
 def request_int():
     """
