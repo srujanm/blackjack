@@ -83,7 +83,7 @@ class Round():
         Method to check if dealer has a natural blackjack.
         Executed when the player gets a blackjack.
         """
-        if blackjack_round.dealer_hand.is_blackjack():
+        if self.dealer_hand.is_blackjack():
             self.outcome = 'Draw'
             print('And so does the dealer!')
             print(blackjack_round.dealer_hand)
@@ -119,3 +119,16 @@ class Round():
             else:
                 print('Dealer hand complete')
                 break
+
+    def compare_scores(self):
+        """Method to compare scores of dealer and player hands"""
+        score_diff = self.player_hand.score() - self.dealer_hand.score()
+        if score_diff > 0:
+            self.outcome = 'Win'
+            print(f'You beat the dealer by {score_diff} points')
+        if score_diff == 0:
+            self.outcome = 'Draw'
+            print('You and the dealer have the same score!')
+        else:
+            self.outcome = 'Loss'
+            print(f'The dealer beat you by {-score_diff} points')

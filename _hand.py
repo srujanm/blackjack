@@ -97,7 +97,7 @@ class Hand():
         Returns:
             (bool)
         """
-        return self.score > 21
+        return self.score() > 21
 
     def is_blackjack(self):
         """
@@ -106,4 +106,4 @@ class Hand():
         Returns:
             (bool)
         """
-        return self.score == 21
+        return self.score() == 21
