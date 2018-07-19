@@ -32,5 +32,5 @@ def blackjack_round(player_name='Human'):
         if round.outcome == 'In Progress':
             round.compare_scores()
     # terminate round
-    print('End of round!')
+    print('\nEnd of round!')
     return round.outcome

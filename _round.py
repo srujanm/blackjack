@@ -20,7 +20,7 @@ class Round():
         """
         self.player_name = player_name
         # opening message
-        print('Starting new round of game!')
+        print('Starting new round of game!\n')
         # initialize deck
         self.deck = Deck()
         # initialize player and dealer hands
@@ -41,7 +41,7 @@ class Round():
             Returns:
                 (str)
             """
-            print('Choose your move: Enter h to hit and s to stand')
+            print('\nChoose your move: Enter h to hit and s to stand')
             move = input()
             # check for validity of input
             if move != 'h' and move != 's':
@@ -57,13 +57,13 @@ class Round():
             # check for blackjack
             if self.player_hand.is_blackjack():
                 self.player_status = 'Blackjack'
-                print('You have a blackjack! :D')
+                print('\nYou have a blackjack! :D')
                 break
             # check for bust
             elif self.player_hand.is_bust():
                 self.outcome = 'Loss'
                 self.player_status = 'Bust'
-                print('Your hand is bust :(')
+                print('\nYour hand is bust :(')
                 break
             # if neither, then request move from player
             else:
@@ -95,7 +95,7 @@ class Round():
     def dealer_sequence(self):
         """Method to implement dealer moves in a round"""
         # opening message
-        print('Dealer will start drawing!')
+        print('\nDealer will start drawing now!')
         # start dealer loop
         while True:
             # print both player hand and dealer hand
@@ -104,20 +104,20 @@ class Round():
             # check for blackjack
             if self.dealer_hand.is_blackjack():
                 self.outcome = 'Loss'
-                print('Dealer has a blackjack!')
+                print('\nDealer has a blackjack!')
                 break
             # check for bust
             elif self.dealer_hand.is_bust():
                 self.outcome = 'Win'
-                print('Dealer hand is bust!')
+                print('\nDealer hand is bust!')
                 break
             # check if dealer should draw
             elif self.dealer_hand.should_draw():
-                print('Dealer draws')
+                print('\nDealer draws')
                 self.dealer_hand.hit(self.deck)
             # else complete dealer hand
             else:
-                print('Dealer hand complete')
+                print('\nDealer hand complete')
                 break
 
     def compare_scores(self):
